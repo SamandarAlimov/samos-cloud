@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Samos Cloud Design System - Professional cloud storage platform */
+
+@layer base {
+  :root {
+    /* Samos Brand Colors */
+    --samos-blue: 213 88% 56%; /* #2563EB */
+    --samos-blue-light: 214 95% 93%; /* #DBEAFE */
+    --samos-blue-dark: 213 94% 68%; /* #3B82F6 */
+    
+    /* Neutral Palette */
+    --background: 220 13% 98%; /* #F9FAFB */
+    --surface: 0 0% 100%; /* Pure white */
+    --surface-elevated: 220 14% 96%; /* #F3F4F6 */
+    --foreground: 220 26% 14%; /* #111827 */
+    
+    /* Interactive States */
+    --primary: var(--samos-blue);
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: var(--samos-blue-dark);
+    
+    /* Secondary colors */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+    --secondary-hover: 220 13% 91%;
+    
+    /* Semantic colors */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* UI Elements */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: var(--samos-blue-light);
+    --accent-foreground: var(--samos-blue);
+    
+    --card: var(--surface);
+    --card-foreground: var(--foreground);
+    
+    --popover: var(--surface);
+    --popover-foreground: var(--foreground);
+    
+    --border: 220 13% 91%;
+    --input: var(--border);
+    --ring: var(--samos-blue);
+    
+    /* Sidebar specific */
+    --sidebar-background: var(--surface);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--samos-blue);
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: var(--muted);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--samos-blue);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--samos-blue)), hsl(var(--samos-blue-dark)));
+    --gradient-surface: linear-gradient(145deg, hsl(var(--surface)), hsl(var(--surface-elevated)));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px hsl(var(--samos-blue) / 0.3);
+    
+    --radius: 8px;
+    --radius-sm: 6px;
+    --radius-lg: 12px;
+  }
+
+  .dark {
+    /* Dark mode - professional dark theme */
+    --background: 220 27% 8%; /* #0B1220 */
+    --surface: 220 22% 11%; /* #1A202C */
+    --surface-elevated: 220 18% 15%; /* #2D3748 */
+    --foreground: 0 0% 98%; /* #FAFAFA */
+    
+    --primary: var(--samos-blue-dark);
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: var(--samos-blue);
+    
+    --secondary: 220 18% 15%;
+    --secondary-foreground: 220 9% 84%;
+    --secondary-hover: 220 15% 20%;
+    
+    --muted: 220 18% 15%;
+    --muted-foreground: 220 9% 65%;
+    --accent: 220 22% 20%;
+    --accent-foreground: var(--samos-blue-dark);
+    
+    --card: var(--surface);
+    --card-foreground: var(--foreground);
+    
+    --popover: var(--surface);
+    --popover-foreground: var(--foreground);
+    
+    --border: 220 15% 20%;
+    --input: var(--border);
+    --ring: var(--samos-blue-dark);
+    
+    --sidebar-background: var(--surface);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--samos-blue-dark);
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: var(--muted);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--samos-blue-dark);
+    
+    --gradient-primary: linear-gradient(135deg, hsl(var(--samos-blue-dark)), hsl(var(--samos-blue)));
+    --gradient-surface: linear-gradient(145deg, hsl(var(--surface)), hsl(var(--surface-elevated)));
+    
+    --shadow-glow: 0 0 20px hsl(var(--samos-blue-dark) / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer utilities {
+  /* File drag & drop animations */
+  .file-drag-over {
+    @apply bg-accent/50 border-primary border-dashed;
+    animation: pulse 1s ease-in-out infinite;
+  }
+  
+  /* Loading skeleton */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-smooth hover:translate-y-[-2px] hover:shadow-lg;
+  }
+  
+  .hover-glow {
+    @apply transition-smooth hover:shadow-[var(--shadow-glow)];
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
